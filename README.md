@@ -40,8 +40,10 @@ Your app is ready to be deployed!
 Using miragejs (a great library to learn about, thank you!), I created the paths for the 'subscribers' and 'sales' graph options. I also used the server factory 'seed' options to populate the chart select options menu. This eventually could be extended to utilize a configuration file that would list the chart options and dynmically populate the select option menu.
 
 I created the SelectChart component to encompass the Select option dropdown (which the react-select package was used for, primarily for its styling) and to call the useFetch hook to perform a dynamic load of the Select options from the mirage 'server'. 
+### Details
 
 I first implemented an inline fetch with useState and useEffect within the SelectChart.js component, but then extracted it to have a seperate fetch component. In researching a generic fetch component, I found the one used in SmashingMagazine, https://www.smashingmagazine.com/2020/07/custom-react-hook-fetch-cache-data/, which caches fetch results (since none will be dynamically updated for this implmentation) and uses useEffect to call the actual fetch, and also a try/catch to capture and return any errors. It also uses a reducer to simplify the state return to the calling component.
+### Up Next
 
 In the next iteration of this useFetch, I would like to utilize react-query which has a nice caching mechanism, along with other functionality that facilitates the overall app data management for both retrieval and mutation opertions (check out https://react-query.tanstack.com/).
 
