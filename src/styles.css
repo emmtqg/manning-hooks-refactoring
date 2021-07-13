@@ -2,8 +2,7 @@
 
 html {
     font: 20px/1.5 "Karla", sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -24,6 +23,25 @@ label {
     display: block;
 }
 
+.container {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  min-height: 4rem;
+}
+
+.error {
+  margin: 1rem;
+  padding: 2rem;
+  background-color: rgba(255, 20, 83, 0.1);
+  font-weight: bold;
+}
+
+.error pre {
+  font-style: italic;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -35,10 +53,7 @@ label {
 }
 
 select {
-    -moz-appearance: none;
-    -ms-text-size-adjust: 100%;
-    -webkit-appearance: none;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     appearance: none;
     background-color: white;
     border-radius: 5px;
@@ -47,7 +62,14 @@ select {
     font-family: inherit;
     font-size: 100%;
     height: 2rem;
+    text-size-adjust: 100%;
     width: 100%;
+}
+
+.select-chart {
+  padding: 1rem;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .chevron-wrapper {
@@ -120,43 +142,22 @@ select {
     box-shadow: 0 10px 15px -3px;
 }
 
-.loading {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+.loader {
+  width: 48px;
+  height: 6px;
+  display: block;
+  margin: auto;
+  position: relative;
+  border-radius: 4px;
+  color: skyblue;
+  box-sizing: border-box;
+  animation: animloader 0.6s linear infinite;
 }
 
-.loading div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid cornflowerblue;
-    border-radius: 50%;
-    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: cornflowerblue transparent transparent transparent;
-}
-
-.loading div:nth-child(1) {
-    animation-delay: -0.45s;
-}
-
-.loading div:nth-child(2) {
-    animation-delay: -0.3s;
-}
-
-.loading div:nth-child(3) {
-    animation-delay: -0.15s;
-}
-
-@keyframes loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+@keyframes animloader {
+  0% { box-shadow: -10px 20px, 10px 35px , 0px 50px }
+  25% { box-shadow: 0px 20px ,  0px 35px, 10px 50px }
+  50% { box-shadow: 10px 20px, -10px 35px, 0px 50px }
+  75% { box-shadow: 0px 20px, 0px  35px, -10px 50px }
+  100% { box-shadow: -10px 20px, 10px  35px, 0px 50px}
 }
