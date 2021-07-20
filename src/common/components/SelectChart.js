@@ -4,7 +4,7 @@ import { ErrorBoundary, useErrorHandler } from 'react-error-boundary';
 import Select from 'react-select';
 // import { useQuery } from 'react-query';
 import useFetch from '../hooks/useFetch';
-import { SelectChartError } from './errors/ComponentError';
+import { SelectChartError } from './errors/ComponentErrors';
 
 const SelectChart = ({ handleSelectionChange }) => {
   const url = `${process.env.REACT_APP_BASE_URL}/options`;
@@ -26,7 +26,7 @@ const SelectChart = ({ handleSelectionChange }) => {
   return (
     <ErrorBoundary FallbackComponent={SelectChartError}>
       {status === 'error' && <div>Error raised in the useFetch hook: ${error}</div>}
-      {status === 'fetching' && <div class="loader"></div>}
+      {status === 'fetching' && <div className="loader"></div>}
       {status === 'fetched' &&
       <Select
         className="select-chart"
