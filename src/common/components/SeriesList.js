@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorBoundary } from 'react-error-boundary';
-import { SeriesListError } from './errors/ComponentError'
+import { SeriesListError } from './errors/ComponentErrors'
 import useFetch from '../hooks/useFetch';
 
 const SeriesList = ({ seriesType }) => {

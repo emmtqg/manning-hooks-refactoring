@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { ErrorFallback } from './common/components/errors/ComponentError';
+import { ErrorFallback } from './common/components/errors/ComponentErrors';
 // import DashboardShell from './features/Dashboard/DashboardShell';
 import SelectChart from './common/components/SelectChart.js';
 import SeriesList from './common/components/SeriesList';
@@ -28,7 +28,8 @@ const App = () => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <section className="container">    
+      <section className="container">
+        <h2>Please, select a chart:</h2>  
         <SelectChart
           handleSelectionChange={handleSelectionChange}
         />

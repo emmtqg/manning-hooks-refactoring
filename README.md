@@ -52,3 +52,10 @@ I wanted also to experiement with Error Boundaries as well, so included them in 
 I'd also like to start to convert this to typescript for practice if that is ok. I realize it's unrelate to the course, but it would just be for my own edifiction.
 
 Thanks for a fun project!
+
+
+## Lesson 2
+
+### Overview
+I swear I did not look ahead while preparing Lesson 1! Since the standalone custom fetch hook met the objectives for Lesson 2, I used miragejs to test the error display and fine tuned those components.
+
