@@ -11,7 +11,7 @@ export function makeServer({ environment = "test" } = {}) {
     },
 
     seeds(server) {
-      server.create("option", { value: "Charts" });
+      server.create("option", { value: "Sales" });
       server.create("option", { value: "Subscriptions" });
     },
 

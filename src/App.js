@@ -1,51 +1,27 @@
-import React, { useState } from 'react';
+import React, { createContext } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallback } from './common/components/errors/ComponentErrors';
-// import DashboardShell from './features/Dashboard/DashboardShell';
-import SelectChart from './common/components/SelectChart.js';
-import SeriesList from './common/components/SeriesList';
+
+import DashboardShell from './features/Dashboard/DashboardShell';
+
+export const DashboardContext = createContext();
+
+const initialState = {
+  status: 'idle',
+  error: null,
+  data: [],
+  salesTotal: 0,
+  subscriptionsTotal: 0,
+};
 
 const App = () => {
-  const [seriesType, setSeriesType] = useState(null);
-  
-  const handleSelectionChange = (option) => {
-    switch (option.value) {
-      case 'Subscriptions':
-        // seriesType = 'subscriptions'       
-        setSeriesType('subscriptions');
-        break;
-      case 'Charts':
-        // timestamp: '2020-01-02T04:30:41.000Z'
-        // amount: integer
-        // seriesType = 'sales'
-        setSeriesType('sales');
-        break;
-      default:
-        break;
-    }
-      console.log(`label = ${option.label}`);
-  }
-
   return (
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <section className="container">
-        <h2>Please, select a chart:</h2>  
-        <SelectChart
-          handleSelectionChange={handleSelectionChange}
-        />
-        
-        {seriesType !== null && 
-          <>
-            <hr />
-            <SeriesList
-              seriesType={seriesType}
-            />
-          </>
-        }
-      </section>
-    </ErrorBoundary>
+    <DashboardContext.Provider value={initialState}>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <DashboardShell className="container" />        
+      </ErrorBoundary>
+    </DashboardContext.Provider>
   );
-  // return <DashboardShell />;
-};
+}
 
 export default App;

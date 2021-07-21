@@ -1,26 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
 html {
-    font: 20px/1.5 "Karla", sans-serif;
-    text-size-adjust: 100%;
+  font: 20px/1.5 "Karla", sans-serif;
+  text-size-adjust: 100%;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 h1, h2, h3 {
-    color: #1C1D38;
-    font-weight: initial;
+  color: #1C1D38;
+  font-weight: initial;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 label {
-    margin-bottom: 20px;
-    display: block;
+  margin-bottom: 20px;
+  display: block;
+}
+
+pre {
+  white-space: break-spaces;
 }
 
 .container {
@@ -60,15 +64,15 @@ select {
     border-width: 1px;
     display: block;
     font-family: inherit;
-    font-size: 100%;
+    font-size: 0.7rem;
     height: 2rem;
     text-size-adjust: 100%;
     width: 100%;
 }
 
 .select-chart {
-  padding: 1rem;
-  width: 30%;
+  font-size: 0.75rem;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -95,7 +99,7 @@ select {
     grid-template-areas:
         "aside main";
     grid-template-columns: auto 1fr;
-    grid-column-gap: 4rem;
+    grid-column-gap: 2rem;
 }
 
 .aside {

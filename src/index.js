@@ -4,8 +4,8 @@ import { makeServer } from "./server";
 
 import "./styles.css";
 import App from "./App";
-import store from "./store";
-import { Provider } from "react-redux";
+// import store from "./store";
+// import { Provider } from "react-redux";
 
 import {
   QueryClient,
@@ -27,11 +27,11 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
-    </Provider>
+    {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
