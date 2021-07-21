@@ -2,14 +2,8 @@
 // my implementation of https://www.smashingmagazine.com/2020/07/custom-react-hook-fetch-cache-data/
 import { useEffect, useRef, useReducer } from 'react';
 
-export const useFetch = (endpoint) => {
+export const useFetch = (endpoint, initialState) => {
 	const cache = useRef({});
-
-	const initialState = {
-		status: 'idle',
-		error: null,
-		data: [],
-	};
 
 	const [state, dispatch] = useReducer((state, action) => {
 		switch (action.type) {

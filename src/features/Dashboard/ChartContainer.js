@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import LineChart from "./LineChart";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { DashboardContext } from '../../App';
+import useFetch from '../../common/hooks/useFetch';
 
-const ChartContainer = ({ dataset, selectedLabel }) => {
+const ChartContainer = ({ selectedLabel }) => {
+  
+  const initialState = useContext(DashboardContext);
+  const url = `${process.env.REACT_APP_BASE_URL}/${selectedLabel.toLowerCase()}`;
+
+	const { status, error, data: dataset } = useFetch(url, initialState);
+
   const chartLabels = dataset.map(dataPoint => dataPoint.timestamp);
   const chartValues = dataset.map(dataPoint => dataPoint.amount);
 
@@ -12,19 +18,10 @@ const ChartContainer = ({ dataset, selectedLabel }) => {
       <LineChart
         chartLabels={chartLabels}
         chartValues={chartValues}
-        label={selectedLabel}
+        label={selectedLabel ? selectedLabel : 'Select a Type of Chart from the Select Dropdown Options.'}
       />
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return { dataset: state.dataset.data };
-};
-
-ChartContainer.propTypes = {
-  dataset: PropTypes.array.isRequired,
-  selectedLabel: PropTypes.string.isRequired
-};
-
-export default connect(mapStateToProps)(ChartContainer);
+export default ChartContainer ;

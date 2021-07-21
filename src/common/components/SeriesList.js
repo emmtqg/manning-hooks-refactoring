@@ -9,7 +9,7 @@ const SeriesList = ({ seriesType }) => {
   const generateSeriesLi = (loadedSeries) => {
     if (!loadedSeries) return;
     return (loadedSeries.map(ele => {
-      return <li>{ele.timestamp}: {ele.amount}</li>;
+      return <li key={ele.id}>{ele.timestamp}: {ele.amount}</li>;
     }));
   }
 
