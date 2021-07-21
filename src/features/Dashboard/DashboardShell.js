@@ -16,7 +16,7 @@ const DashboardShell = () => {
       case 'Subscriptions':      
         setGraphType('Subscriptions');
         break;
-      case 'Charts':
+      case 'Sales':
         setGraphType('Sales');
         break;
       default:
