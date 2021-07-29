@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
 import LineChart from "./LineChart";
-import { DashboardContext } from '../../App';
-import useFetch from '../../common/hooks/useFetch';
+import { DashboardContext } from '../../store/DashboardContext';
 
 const ChartContainer = ({ selectedLabel }) => {
+  const { data: dataset } = useContext(DashboardContext);
+
+  const chartLabels = dataset.map(dataPoint => {
+    const localdt = new Date(dataPoint.timestamp);
+    return `${localdt.toLocaleDateString()} ${localdt.toLocaleTimeString()}`;
+  });
   
-  const initialState = useContext(DashboardContext);
-  const url = `${process.env.REACT_APP_BASE_URL}/${selectedLabel.toLowerCase()}`;
-
-	const { status, error, data: dataset } = useFetch(url, initialState);
-
-  const chartLabels = dataset.map(dataPoint => dataPoint.timestamp);
   const chartValues = dataset.map(dataPoint => dataPoint.amount);
 
   return (

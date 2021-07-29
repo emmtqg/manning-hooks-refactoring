@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { makeServer } from "./server";
+import { startServer } from "./server";
 
 import "./styles.css";
 import App from "./App";
@@ -13,7 +13,7 @@ import {
 } from 'react-query'
 
 if (process.env.NODE_ENV === "development") {
-  makeServer({ environment: "development" })
+  startServer({ environment: "development" })
 }
 
 // Create a client

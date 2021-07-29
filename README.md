@@ -60,7 +60,7 @@ Thanks for a fun project!
 I swear I did not look ahead while preparing Lesson 1! Since the standalone custom fetch hook met the objectives for Lesson 2, I used miragejs to test the error display and fine-tuned those components.
 
 
-## Lesson 3 Removing redux/Adding Context
+## Lesson 3: Removing redux/Adding Context
 
 ### Overview
 I did not remove the redux libaries/files in case I want to go back and review the redux functionality. I have seperate branches for the lessons, but still wanted them in the main branch for reference. I never really 'got' redux intuitively until I removed it in this lesson and directly replaced it with the context. That is one huge gain from this exercise - thank you!
