@@ -69,8 +69,9 @@ I did put in a fetch call for the chart (the initial useFetch call is for the dy
 
 I completely commented out a DashboardContext Provider component in the store area intending to implement it for the next lesson (or, maybe it'll get deleted!).
 
-Module #4
+## Module 4: Writing Tests for the Application, and More Refactoring
 
+### Overview
 Created a seperate API call for the summary data. I calculated the summaries in the server.js file as a 'real' API would do the calculations in a typical use case.
 
 A second instance of the miragejs server is started from the Cypress spec and the options, sales and subscription data are loaded via Cypress intercepts (which load external json files with the various data sets). I left them in the /store directory to keep the data store consistent between development and test.
