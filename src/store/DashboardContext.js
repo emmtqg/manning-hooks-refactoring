@@ -1,27 +1,20 @@
-// import React, { createContext, useState } from "react";
- 
-// export const DashboardContext = createContext({
-//   status: 'idle',
-//   error: null,
-//   data: [],
-//   salesTotal: 0,
-//   subscriptionsTotal: 0,
-// });
+import React, { useState } from "react";
+import { createContext } from "react";
+import { initialState } from '../App';
 
-// export function DashboardProvider ({children}) {
-//   return (
-//     <DashboardContext.Provider value={DashboardContext}>
-//       {children}
-//     </DashboardContext.Provider>
-//   );
-// }
+export const DashboardContext = createContext();
 
-// const useData = () => {
-//   const [data, setData] = useState(DashboardContext)
-
-//   useEffect(() => {
-
-//   });
-// }
-
-// export default useDashboard;
+export const DashboardProvider = ({ children }) => {
+  const { status, error, data } = children;
+  return (
+    <DashboardContext.Provider
+      value={{
+        data: data || [],
+        status: status || initialState.status,
+        error: error || initialState.error,
+      }}
+    >
+      {children}
+    </DashboardContext.Provider>
+  );
+};

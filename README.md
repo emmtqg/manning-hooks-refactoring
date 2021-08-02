@@ -34,7 +34,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified, and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-## Lesson 1
+## Module 1
 ### Approach
 
 Using miragejs (a great library to learn about, thank you!), I created the paths for the 'subscribers' and 'sales' graph options. I also used the server factory 'seed' options to populate the chart select options menu. This eventually could be extended to utilize a configuration file that would list the chart options and dynmically populate the select option menu.
@@ -54,13 +54,13 @@ I'd also like to start to convert this to typescript for practice if that is ok.
 Thanks for a fun project!
 
 
-## Lesson 2: Custom React Fetch Hook
+## Module 2: Custom React Fetch Hook
 
 ### Overview
-I swear I did not look ahead while preparing Lesson 1! Since the standalone custom fetch hook met the objectives for Lesson 2, I used miragejs to test the error display and fine-tuned those components.
+I swear I did not look ahead while preparing Module 1! Since the standalone custom fetch hook met the objectives for Module 2, I used miragejs to test the error display and fine-tuned those components.
 
 
-## Lesson 3 Removing redux/Adding Context
+## Module 3: Removing redux/Adding Context
 
 ### Overview
 I did not remove the redux libaries/files in case I want to go back and review the redux functionality. I have seperate branches for the lessons, but still wanted them in the main branch for reference. I never really 'got' redux intuitively until I removed it in this lesson and directly replaced it with the context. That is one huge gain from this exercise - thank you!
@@ -68,3 +68,13 @@ I did not remove the redux libaries/files in case I want to go back and review t
 I did put in a fetch call for the chart (the initial useFetch call is for the dynamically loaded select options which I left in there). I fully expect to revisit that in the next lesson, therefore didn't implement the status/error handling here. I did put a conditional for the chart display if no chart type selection is made.
 
 I completely commented out a DashboardContext Provider component in the store area intending to implement it for the next lesson (or, maybe it'll get deleted!).
+
+Module #4
+
+Created a seperate API call for the summary data. I calculated the summaries in the server.js file as a 'real' API would do the calculations in a typical use case.
+
+A second instance of the miragejs server is started from the Cypress spec and the options, sales and subscription data are loaded via Cypress intercepts (which load external json files with the various data sets). I left them in the /store directory to keep the data store consistent between development and test.
+
+I added a REACT_APP_ENV environment variable because the CRA NODE_ENV does not get updated with Cypress. I added another start mode for the react app, yarn start:test which sets the REACT_APP_ENV variable so the correct miragejs server is started for both development and test.
+
+The Cypress test cases were sometimes not straightforward in that the API calls to intercept were generated from the api URL switching that is done on the Select option clicks.

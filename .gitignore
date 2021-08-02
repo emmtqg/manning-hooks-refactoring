@@ -7,6 +7,14 @@
 
 # testing
 /coverage
+/cypress/fixtures/example.json
+/cypress/fixtures/profile.json
+/cypress/fixtures/users.json
+/cypress/integration/1-*
+/cypress/integration/2-*
+/cypress/plugins/
+cypress/screenshots
+cypress/videos
 
 # production
 /build

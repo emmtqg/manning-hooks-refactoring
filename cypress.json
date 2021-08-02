@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "nodeVersion": "bundled",
+  "testFiles": "**/*.{feature,spec.js}",
+  "integrationFolder": ".",
+  "ignoreTestFiles": "**/node_modules/**/*{feature,spec.js}",
+  "plugins": "none"
+}

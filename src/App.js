@@ -1,26 +1,37 @@
-import React, { createContext } from 'react';
+import React, { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallback } from './common/components/errors/ComponentErrors';
+import useFetch from './common/hooks/useFetch';
 
 import DashboardShell from './features/Dashboard/DashboardShell';
 
-export const DashboardContext = createContext();
+// import { DashboardProvider } from './store/DashboardContext';
+export const DashboardContext = React.createContext();
+const { Provider: DashboardProvider } = DashboardContext;
 
-const initialState = {
+export const initialState = {
   status: 'idle',
-  error: null,
-  data: [],
-  salesTotal: 0,
-  subscriptionsTotal: 0,
+  error: '',
+  data: []
 };
 
 const App = () => {
+  const [url, setUrl] = useState("");   
+  const fetchDataset = (newUrl) => {
+    setUrl(newUrl);
+  };
+
+  const value = useFetch(url, initialState);
+
   return (
-    <DashboardContext.Provider value={initialState}>
+    <DashboardProvider value={value}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <DashboardShell className="container" />        
+        <DashboardShell
+          className="container"
+          fetchDataset={fetchDataset}
+        />        
       </ErrorBoundary>
-    </DashboardContext.Provider>
+    </DashboardProvider>
   );
 }
 

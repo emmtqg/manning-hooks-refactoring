@@ -1,25 +1,34 @@
 import React, { useContext } from "react";
 import LineChart from "./LineChart";
 import { DashboardContext } from '../../App';
-import useFetch from '../../common/hooks/useFetch';
 
 const ChartContainer = ({ selectedLabel }) => {
-  
-  const initialState = useContext(DashboardContext);
-  const url = `${process.env.REACT_APP_BASE_URL}/${selectedLabel.toLowerCase()}`;
+  const { data: dataset } = useContext(DashboardContext);
 
-	const { status, error, data: dataset } = useFetch(url, initialState);
+  const returnLength = dataset?.length ?
+  'dataset.length' : null;
 
-  const chartLabels = dataset.map(dataPoint => dataPoint.timestamp);
-  const chartValues = dataset.map(dataPoint => dataPoint.amount);
+  let chartLabels = []
+  let chartValues = []
+  if (returnLength) {
+    chartLabels = dataset.map(dataPoint => {
+      const localdt = new Date(dataPoint.timestamp);
+      return `${localdt.toLocaleDateString()} ${localdt.toLocaleTimeString()}`;
+    });
+
+    chartValues = dataset.map(dataPoint => dataPoint.amount);
+  }
 
   return (
     <div>
-      <LineChart
-        chartLabels={chartLabels}
-        chartValues={chartValues}
-        label={selectedLabel ? selectedLabel : 'Select a Type of Chart from the Select Dropdown Options.'}
-      />
+      {returnLength ?
+        <LineChart
+          chartLabels={chartLabels}
+          chartValues={chartValues}
+          label={selectedLabel ? selectedLabel : 'Select a Type of Chart from the Select Dropdown Options.'}
+        />
+        : <h3>No data values found</h3>
+      }
     </div>
   );
 };
