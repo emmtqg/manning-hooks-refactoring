@@ -18,7 +18,6 @@ const DashboardShell = ({ fetchDataset }) => {
         setGraphType(option.value);
         fetchDataset(`${process.env.REACT_APP_BASE_URL}/subscriptions`);
         break;
-
       case 'Sales':
         setGraphType(option.value); 
         fetchDataset(`${process.env.REACT_APP_BASE_URL}/sales`)
