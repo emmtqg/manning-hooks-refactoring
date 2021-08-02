@@ -11,8 +11,12 @@ const SelectChart = ({ handleSelectionChange }) => {
   const fetchOptions = async () => {
     return (
       await fetch(
-        url
-      ).then(async (res) => await res.json())
+        url,
+        { headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+        }).then(async (res) => await res.json())
     )
   }
   const { isLoading, isError, error, data } = useQuery('options', fetchOptions);

@@ -1,4 +1,4 @@
 export default [
-  { id: 1, label: "Sales", value: "sales" },
-  { id: 2, label: "Subscriptions", value: "subscriptions" }
+  { id: 1, label: "Sales", value: "Sales" },
+  { id: 2, label: "Subscriptions", value: "Subscriptions" }
 ]

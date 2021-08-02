@@ -12,7 +12,7 @@ import {
   QueryClientProvider,
 } from 'react-query'
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.REACT_APP_ENV === "development") {
   startServer({ environment: "development" })
 }
 

@@ -21,23 +21,23 @@ import './commands'
 
 // https://miragejs.com/quickstarts/cypress/
 // Have Cypress define a proxy function for API requests
-// cypress/support/index.js
-Cypress.on("window:before:load", (win) => {
-  win.handleFromCypress = function (request) {
-    return fetch(request.url, {
-      method: request.method,
-      headers: request.requestHeaders,
-      body: request.requestBody,
-    }).then((res) => {
-      console.warn(`res text = ${JSON.stringify(res)}`)
-      let content = res.headers.get("content-type").includes("application/json")
-        ? res.json()
-        : res.text()
-      // const content = res.json();
-      return new Promise((resolve) => {
-        content.then((body) => resolve([res.status, res.headers, body]))
-      })
-    })
-  }
-})
+// // cypress/support/index.js
+// Cypress.on("window:before:load", (win) => {
+//   win.handleFromCypress = function (request) {
+//     return fetch(request.url, {
+//       method: request.method,
+//       headers: request.requestHeaders,
+//       body: request.requestBody,
+//     }).then((res) => {
+//       console.warn(`res text = ${JSON.stringify(res)}`)
+//       let content = res.headers.get("content-type").includes("application/json")
+//         ? res.json()
+//         : res.text()
+//       // const content = res.json();
+//       return new Promise((resolve) => {
+//         content.then((body) => resolve([res.status, res.headers, body]))
+//       })
+//     })
+//   }
+// })
 

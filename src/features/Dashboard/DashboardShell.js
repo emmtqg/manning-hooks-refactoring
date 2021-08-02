@@ -5,9 +5,10 @@ import Layout from "../../common/components/Layout";
 import Main from "../../common/components/Main";
 import SummaryContainer from "./SummaryContainer";
 import SelectChart from '../../common/components/SelectChart';
-import { DashboardContext } from '../../store/DashboardContext';
+// import { DashboardContext } from '../../store/DashboardContext';
+import { DashboardContext } from '../../App';
 
-const DashboardShell = () => {
+const DashboardShell = ({ fetchDataset }) => {
   const [graphType, setGraphType] = useState(null);
   const context = useContext(DashboardContext);
 
@@ -15,12 +16,12 @@ const DashboardShell = () => {
     switch (option.label) {
       case 'Subscriptions':      
         setGraphType(option.value);
-        context.fetchDataset(`${process.env.REACT_APP_BASE_URL}/subscriptions`, context);
+        fetchDataset(`${process.env.REACT_APP_BASE_URL}/subscriptions`);
         break;
 
       case 'Sales':
         setGraphType(option.value); 
-        context.fetchDataset(`${process.env.REACT_APP_BASE_URL}/sales`, context)
+        fetchDataset(`${process.env.REACT_APP_BASE_URL}/sales`)
         break;
 
       default:

@@ -13,6 +13,8 @@
 /cypress/integration/1-*
 /cypress/integration/2-*
 /cypress/plugins/
+cypress/screenshots
+cypress/videos
 
 # production
 /build
