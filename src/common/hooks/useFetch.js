@@ -56,7 +56,7 @@ export const useFetch = (endpoint, initialState) => {
 
 		fetchData();
 
-    // Before we attempt to make state changes, we first confirm if the component has been unmounted. If it has been unmounted, we skip updating the st01ate and if it hasn’t been unmounted, we update the state. This will resolve the React state update error, and also prevent race conditions in our components.
+  
 		return function cleanup() {
 			cancelRequest = true;
 		};
