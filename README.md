@@ -86,7 +86,7 @@ The Cypress test cases were sometimes not straightforward in that the API calls 
 The context provider in App.js generically supports different urls via passing the
 setUrl functionality to it's children. The unit tests support testing the Summary container and fetch hook functionality. The react-query library was utiilized to maintain data state is is exetensible to providing mutation and caching functions for the backend data maintainence.
 
-After revisiting the project, many of the packages, etc are outdated and there were a lot of configuration issues with my npm and legacy package support! 
+After revisiting the project, many of the packages, etc are outdated and there were a lot of configuration issues with my npm and legacy package support! Coupled with github's new Token authentication for git operations, added a little drama to finishing up the project :)
 
 ## Conslusion
 I found this Live Project very interesting and pertinent in my work. I really like the generalization and extendability of the code we generated and found much value in the resources provided in the modules. Thanks!
