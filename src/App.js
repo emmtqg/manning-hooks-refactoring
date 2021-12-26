@@ -4,8 +4,6 @@ import { ErrorFallback } from './common/components/errors/ComponentErrors';
 import useFetch from './common/hooks/useFetch';
 
 import DashboardShell from './features/Dashboard/DashboardShell';
-
-// import { DashboardProvider } from './store/DashboardContext';
 export const DashboardContext = React.createContext();
 const { Provider: DashboardProvider } = DashboardContext;
 

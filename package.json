@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.4",
     "cross-env": "^7.0.3",
@@ -23,13 +22,21 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_ENV=development react-scripts start",
-    "start:test": "cross-env REACT_APP_ENV=test react-scripts start",
+    "start": "REACT_APP_ENV=development react-scripts start",
+    "start:test": "REACT_APP_ENV=test react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
-    "e2e": "cross-env REACT_APP_ENV=test cypress open",
+    "e2e": "REACT_APP_ENV=test cypress open",
     "cypressr": "cypress run"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "coverageReporters": [
+      "html"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -50,8 +57,25 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
     "miragejs": "^0.1.41",
     "prop-types": "^15.7.2",
+    "regenerator-runtime": "^0.13.9",
     "time-series-data-generator": "^0.1.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/react",
+      "@babel/env"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ]
   }
 }

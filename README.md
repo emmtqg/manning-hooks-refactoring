@@ -79,3 +79,14 @@ A second instance of the miragejs server is started from the Cypress spec and th
 I added a REACT_APP_ENV environment variable because the CRA NODE_ENV does not get updated with Cypress. I added another start mode for the react app, yarn start:test which sets the REACT_APP_ENV variable so the correct miragejs server is started for both development and test.
 
 The Cypress test cases were sometimes not straightforward in that the API calls to intercept were generated from the api URL switching that is done on the Select option clicks.
+
+## Module 5: Creating reusable context provider and writing unit tests
+
+### Overview
+The context provider in App.js generically supports different urls via passing the
+setUrl functionality to it's children. The unit tests support testing the Summary container and fetch hook functionality. The react-query library was utiilized to maintain data state is is exetensible to providing mutation and caching functions for the backend data maintainence.
+
+After revisiting the project, many of the packages, etc are outdated and there were a lot of configuration issues with my npm and legacy package support! 
+
+## Conslusion
+I found this Live Project very interesting and pertinent in my work. I really like the generalization and extendability of the code we generated and found much value in the resources provided in the modules. Thanks!
